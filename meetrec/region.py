@@ -10,7 +10,7 @@ Interaction, following GNOME 46's own UIAreaSelector:
   * drag inside          -> move it
   * drag a corner/edge   -> resize (4 visible corner handles, 8 resize zones)
   * a plain click        -> keeps the current selection (does NOT clear it)
-  * Enter/Space or the 확정 button -> accept,  Esc or 취소 -> discard
+  * Enter/Space or the confirm button -> accept,  Esc or Cancel -> discard
 
 Drag-end never confirms: it only ends that one manipulation, so the rectangle
 can be nudged repeatedly before committing.
@@ -33,6 +33,7 @@ gi.require_version("PangoCairo", "1.0")
 from gi.repository import Gdk, GLib, Gtk, Pango, PangoCairo  # noqa: E402
 
 from . import core  # noqa: E402
+from .i18n import _  # noqa: E402
 
 OVERLAY_CSS = b"""
 window.meetrec-overlay { background-color: transparent; }
@@ -56,8 +57,11 @@ CORNER_HIT = 13       # grab radius around a corner, GNOME uses 12
 EDGE_HIT = 10         # band around each edge, applied inside and outside
 DRAG_START = 4        # movement below this is a click, not a new rectangle
 
-HINT = ("드래그로 영역 지정 · 모서리로 크기 조절 · 안쪽을 끌어 이동 "
-        "· Enter 확정 · Esc 취소")
+
+
+def hint() -> str:
+    return _("Drag to select · drag a corner to resize · drag inside to move · "
+             "Enter to confirm · Esc to cancel")
 
 CORNERS = [("nw", 0.0, 0.0), ("ne", 1.0, 0.0), ("sw", 0.0, 1.0), ("se", 1.0, 1.0)]
 WEST, EAST = {"w", "nw", "sw"}, {"e", "ne", "se"}
@@ -112,7 +116,7 @@ class _Overlay(Gtk.Window):
         drag.connect("drag-begin", self._on_begin)
         drag.connect("drag-update", self._on_update)
         drag.connect("drag-end", self._on_end)
-        drag.connect("cancel", lambda *_: self._sel.abort())
+        drag.connect("cancel", lambda *a: self._sel.abort())
         area.add_controller(drag)
 
         motion = Gtk.EventControllerMotion()
@@ -120,6 +124,9 @@ class _Overlay(Gtk.Window):
         area.add_controller(motion)
 
         keys = Gtk.EventControllerKey()
+        # Capture phase: otherwise Enter goes to whichever button has focus
+        # (Cancel, as it comes first) and throws the selection away.
+        keys.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         keys.connect("key-pressed", self._on_key)
         self.add_controller(keys)
 
@@ -130,16 +137,16 @@ class _Overlay(Gtk.Window):
         bar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8,
                       halign=Gtk.Align.CENTER, valign=Gtk.Align.END)
         bar.add_css_class("meetrec-bar")
-        self.lbl_bar = Gtk.Label(label=HINT)
+        self.lbl_bar = Gtk.Label(label=hint())
         bar.append(self.lbl_bar)
 
-        cancel = Gtk.Button(label="취소")
-        cancel.connect("clicked", lambda *_: self._sel.cancel())
+        cancel = Gtk.Button(label=_("Cancel"))
+        cancel.connect("clicked", lambda *a: self._sel.cancel())
         bar.append(cancel)
 
-        ok = Gtk.Button(label="이 영역으로 지정")
+        ok = Gtk.Button(label=_("Use this area"))
         ok.add_css_class("suggested-action")
-        ok.connect("clicked", lambda *_: self._sel.finish())
+        ok.connect("clicked", lambda *a: self._sel.finish())
         bar.append(ok)
         self.btn_ok = ok
         return bar
@@ -149,14 +156,13 @@ class _Overlay(Gtk.Window):
         if not self.bar:
             return
         rect = self._sel.rect_root()
-        ok = rect is not None and core.normalize_region(
-            *rect, display=self._sel.display) is not None
+        ok = rect is not None and self._sel.valid(rect)
         self.btn_ok.set_sensitive(ok)
         if rect and not ok:
-            self.lbl_bar.set_text(
-                f"너무 작아 — 최소 {core.MIN_REGION_W}×{core.MIN_REGION_H}px")
+            self.lbl_bar.set_text(_("Too small, the minimum is {w}×{h} px").format(
+                w=core.MIN_REGION_W, h=core.MIN_REGION_H))
         else:
-            self.lbl_bar.set_text(HINT)
+            self.lbl_bar.set_text(hint())
 
     # ------------------------------------------------------- coordinates
     def _to_root(self, x: float, y: float) -> tuple[int, int]:
@@ -233,7 +239,7 @@ class _Overlay(Gtk.Window):
         return None
 
     # -------------------------------------------------------------- paint
-    def _draw(self, area, cr, width, height, *_):
+    def _draw(self, area, cr, width, height, *_args):
         rect = self._sel.rect_root()
         if not rect:
             cr.set_source_rgba(*DIM)
@@ -255,8 +261,7 @@ class _Overlay(Gtk.Window):
                 cr.rectangle(bx, by, bw, bh)
         cr.fill()
 
-        valid = core.normalize_region(rx, ry, rw, rh,
-                                      display=self._sel.display) is not None
+        valid = self._sel.valid(rect)
         cr.set_source_rgba(*(LINE if valid else WARN))
         cr.set_line_width(1.0)
         cr.rectangle(lx + 0.5, ly + 0.5, max(lw - 1, 0), max(lh - 1, 0))
@@ -273,7 +278,7 @@ class _Overlay(Gtk.Window):
 
         text = f"{rw} × {rh}"
         if not valid:
-            text += f"  · 최소 {core.MIN_REGION_W}×{core.MIN_REGION_H}"
+            text += "  · " + _("min {w}×{h}").format(w=core.MIN_REGION_W, h=core.MIN_REGION_H)
         self._chip(cr, lx, ly, lw, text, warn=not valid)
 
     def _chip(self, cr, lx, ly, lw, text, warn=False):
@@ -326,8 +331,12 @@ class RegionSelector:
         self._fixed_y: int | None = None
         self._pending_new = False     # a press that has not moved far enough yet
 
+        # Read the screen size once; drawing must not spawn xrandr per frame.
         canvas = core.full_canvas(display)
         self._canvas = (canvas.width, canvas.height) if canvas else None
+
+    def valid(self, rect) -> bool:
+        return core.clamp_region(*rect, self._canvas) is not None
 
     # -------------------------------------------------------------- state
     def press(self, x, y, hit=None, owner=None):
@@ -360,9 +369,9 @@ class RegionSelector:
                 if abs(x - ox) < DRAG_START and abs(y - oy) < DRAG_START:
                     return
                 self._pending_new = False
-                self._rect = [ox, oy, x, y]
-            else:
-                self._rect[2], self._rect[3] = x, y
+            # Always span from the press point; _normalize() reorders corners,
+            # so the previous rectangle is no reference once the drag crosses it.
+            self._rect = [ox, oy, x, y]
         elif self.mode == "inside":
             self._move_to(x, y)
         else:
@@ -376,9 +385,10 @@ class RegionSelector:
         self._end_drag()
 
     def abort(self):
-        """The gesture was cancelled: put the rectangle back as it was."""
-        if self._before is not None or self._pending_new:
-            self._rect = list(self._before) if self._before else self._rect
+        """The gesture was cancelled: put the rectangle back as it was,
+        including no rectangle at all if there was none before."""
+        if self.dragging:
+            self._rect = list(self._before) if self._before else None
         self._end_drag()
 
     def _end_drag(self):
@@ -442,7 +452,7 @@ class RegionSelector:
     # ------------------------------------------------------------ outcome
     def finish(self):
         rect = self.rect_root()
-        region = core.normalize_region(*rect, display=self.display) if rect else None
+        region = core.clamp_region(*rect, self._canvas) if rect else None
         if region is None:
             # Invalid or empty: stay open so None keeps meaning "cancelled".
             self._redraw()
