@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Meeting Recorder
+Name[ko]=회의 녹음기
+GenericName=Meeting Recorder
+Comment=Record microphone, system sound and optionally the screen into one file
+Comment[ko]=마이크와 시스템 소리, 필요하면 화면까지 한 파일로 녹음
+Exec=@BINDIR@/meetrec
+Icon=io.github.jayyo.MeetRec
+Terminal=false
+Categories=AudioVideo;Recorder;
+Keywords=record;recorder;meeting;screen;녹음;녹화;회의;
+StartupNotify=true
+StartupWMClass=meetrec

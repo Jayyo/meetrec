@@ -1,0 +1,397 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the meetrec package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: meetrec\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-22 14:15+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "A recording is already running."
+msgstr ""
+
+msgid "A recording is running"
+msgstr ""
+
+msgid ""
+"A recording is running, but its session file is missing. Stop it here; the "
+"raw file stays in the save folder."
+msgstr ""
+
+msgid ""
+"A recording this window didn't start is running. Stop it here if you want."
+msgstr ""
+
+msgid "About Meeting Recorder"
+msgstr ""
+
+msgid "Also record the screen"
+msgstr ""
+
+msgid "Area not changed"
+msgstr ""
+
+#, python-brace-format
+msgid "Area set: {w}×{h} at ({x},{y})"
+msgstr ""
+
+#, python-brace-format
+msgid "Can't create the save folder: {error}"
+msgstr ""
+
+#, python-brace-format
+msgid "Can't write to the save folder: {path}"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Capture"
+msgstr ""
+
+msgid "Change…"
+msgstr ""
+
+msgid ""
+"Couldn't ask systemd about the recording service. Is the user session "
+"running?"
+msgstr ""
+
+msgid ""
+"Couldn't check whether a recording is running (systemd didn't answer). "
+"Nothing was changed."
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Couldn't finish the file. The raw recording was kept: {path}\n"
+"{error}"
+msgstr ""
+
+msgid "Couldn't open the area picker"
+msgstr ""
+
+msgid "Couldn't read the monitor layout (xrandr)."
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Couldn't save the session file ({error}), so the recording was stopped. The "
+"raw file is here: {path}"
+msgstr ""
+
+msgid "Couldn't start recording"
+msgstr ""
+
+#, python-brace-format
+msgid "Couldn't start recording: {error}"
+msgstr ""
+
+msgid "Couldn't tell which output is the default."
+msgstr ""
+
+msgid "Default output"
+msgstr ""
+
+msgid "Drag out the rectangle to record"
+msgstr ""
+
+msgid ""
+"Drag to select · drag a corner to resize · drag inside to move · Enter to "
+"confirm · Esc to cancel"
+msgstr ""
+
+msgid "Finishing the file…"
+msgstr ""
+
+msgid "Input level"
+msgstr ""
+
+#, python-brace-format
+msgid "Input test failed: {error}"
+msgstr ""
+
+msgid "Keep recording, hide the window"
+msgstr ""
+
+msgid "Listen for 3 seconds and check that both inputs get real signal"
+msgstr ""
+
+msgid "Live while recording"
+msgstr ""
+
+msgid "Meeting Recorder"
+msgstr ""
+
+msgid "Mic"
+msgstr ""
+
+#, python-brace-format
+msgid "Mic {mic}   ·   System sound {sys}"
+msgstr ""
+
+msgid "Microphone"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"No data arrived and the recorder did not stop. Check: systemctl --user "
+"status {unit}"
+msgstr ""
+
+msgid "No microphone found. Check your audio devices."
+msgstr ""
+
+msgid "No output device found."
+msgstr ""
+
+msgid "No recording file was created."
+msgstr ""
+
+#, python-brace-format
+msgid "Not enough free disk space ({free})."
+msgstr ""
+
+#, python-brace-format
+msgid "Not enough space to finish the file. The raw recording was kept: {path}"
+msgstr ""
+
+msgid "Open recordings folder"
+msgstr ""
+
+msgid "Pick again"
+msgstr ""
+
+msgid "Pick area"
+msgstr ""
+
+msgid "Picking an area needs an X11 session"
+msgstr ""
+
+#, python-brace-format
+msgid "Re-attached to the running recording  ·  {file}"
+msgstr ""
+
+msgid "Ready"
+msgstr ""
+
+msgid ""
+"Record microphone, system sound and optionally the screen into one file."
+msgstr ""
+
+#, python-brace-format
+msgid "Recording  {time}"
+msgstr ""
+
+#, python-brace-format
+msgid "Recovered an unfinished recording: {file}"
+msgstr ""
+
+msgid "Refresh devices"
+msgstr ""
+
+msgid "Running out of disk space, stopping the recording."
+msgstr ""
+
+msgid "Save recordings to"
+msgstr ""
+
+msgid "Save to"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Saved device (not connected)"
+msgstr ""
+
+#, python-brace-format
+msgid "Saved what was recorded: {file}"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Saved {got} of about {expected}. The raw recording was kept in case more can "
+"be recovered: {path}"
+msgstr ""
+
+msgid "Saving"
+msgstr ""
+
+msgid "Saving failed"
+msgstr ""
+
+msgid "Saving…"
+msgstr ""
+
+msgid "Screen"
+msgstr ""
+
+#, python-brace-format
+msgid "Screen + sound · {codec}"
+msgstr ""
+
+msgid ""
+"Screen capture needs an X11 session. Record audio only, or log in with X11."
+msgstr ""
+
+msgid "Selected area · not picked yet"
+msgstr ""
+
+#, python-brace-format
+msgid "Selected area · {w}×{h} at ({x},{y})"
+msgstr ""
+
+msgid "Sound"
+msgstr ""
+
+msgid "Sound only"
+msgstr ""
+
+msgid "Start recording"
+msgstr ""
+
+msgid "Starting…"
+msgstr ""
+
+msgid "Stop and save"
+msgstr ""
+
+msgid "Stop recording"
+msgstr ""
+
+msgid "Stopped, but there was no session information to finish the file."
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "System default"
+msgstr ""
+
+msgid "System sound"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "Testing…"
+msgstr ""
+
+#, python-brace-format
+msgid "The raw file was kept: {path}"
+msgstr ""
+
+#, python-brace-format
+msgid "The recorder did not stop. Check: systemctl --user status {unit}"
+msgstr ""
+
+msgid "The recording ended unexpectedly."
+msgstr ""
+
+#, python-brace-format
+msgid "The recording has no audio track. The raw file was kept: {path}"
+msgstr ""
+
+#, python-brace-format
+msgid "The recording has no video track. The raw file was kept: {path}"
+msgstr ""
+
+msgid "The recording started but no data arrived, so it was stopped."
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"The recording stopped right after it started:\n"
+"{log}"
+msgstr ""
+
+msgid "The saved area doesn't fit the current screen. Pick the area again."
+msgstr ""
+
+msgid ""
+"The saved microphone isn't connected. Plug it back in or pick another one."
+msgstr ""
+
+msgid "The saved output device isn't connected. Pick it again."
+msgstr ""
+
+#, python-brace-format
+msgid "The saved screen ({name}) isn't connected. Pick what to record."
+msgstr ""
+
+msgid ""
+"The system's default input isn't a microphone (it may be a monitor). Pick a "
+"microphone."
+msgstr ""
+
+msgid "There was a problem saving"
+msgstr ""
+
+#, python-brace-format
+msgid "Too small, the minimum is {w}×{h} px"
+msgstr ""
+
+msgid "Use this area"
+msgstr ""
+
+msgid "Wait until the file is finished"
+msgstr ""
+
+msgid "What should happen when this window closes?"
+msgstr ""
+
+#, python-brace-format
+msgid "Whole desktop (all monitors) · {w}×{h}"
+msgstr ""
+
+msgid "check the microphone"
+msgstr ""
+
+#, python-brace-format
+msgid "min {w}×{h}"
+msgstr ""
+
+#, python-brace-format
+msgid "no signal ({hint})"
+msgstr ""
+
+msgid "nothing is playing"
+msgstr ""
+
+msgid "silent"
+msgstr ""
+
+#, python-brace-format
+msgid "{name} (not connected)"
+msgstr ""
+
+#, python-brace-format
+msgid "{path}  ·  {free} free"
+msgstr ""
+
+#, python-brace-format
+msgid "“{name}” has no monitor source, so its sound can't be recorded."
+msgstr ""
+
+msgid "⚠ No audio is reaching the recorder"
+msgstr ""
+
+msgid "⚠ The microphone is silent (is it muted?)"
+msgstr ""
+
+msgid "⚠ not a microphone, pick one"
+msgstr ""
+
+msgid "⚠ unknown"
+msgstr ""

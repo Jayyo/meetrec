@@ -1,0 +1,405 @@
+# Korean translation for meetrec.
+# This file is distributed under the same license as the meetrec package.
+msgid ""
+msgstr ""
+"Project-Id-Version: meetrec 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-22 14:15+0900\n"
+"PO-Revision-Date: 2026-10-22 14:00+0900\n"
+"Last-Translator: Jay Cho\n"
+"Language-Team: Korean\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A recording is already running."
+msgstr "이미 녹음이 진행 중이야."
+
+msgid "A recording is running"
+msgstr "녹음이 진행 중이야"
+
+msgid ""
+"A recording is running, but its session file is missing. Stop it here; the "
+"raw file stays in the save folder."
+msgstr ""
+"녹음이 진행 중인데 세션 정보가 없어. 여기서 중지할 수 있고, 원본 파일은 저장 "
+"폴더에 남아."
+
+msgid ""
+"A recording this window didn't start is running. Stop it here if you want."
+msgstr "이 창이 시작하지 않은 녹음이 진행 중이야. 원하면 여기서 중지할 수 있어."
+
+msgid "About Meeting Recorder"
+msgstr "회의 녹음기 정보"
+
+msgid "Also record the screen"
+msgstr "화면도 함께 녹화"
+
+msgid "Area not changed"
+msgstr "영역을 바꾸지 않았어"
+
+#, python-brace-format
+msgid "Area set: {w}×{h} at ({x},{y})"
+msgstr "영역 {w}×{h} @ ({x},{y}) 지정 완료"
+
+#, python-brace-format
+msgid "Can't create the save folder: {error}"
+msgstr "저장 폴더를 만들 수 없어: {error}"
+
+#, python-brace-format
+msgid "Can't write to the save folder: {path}"
+msgstr "저장 폴더에 쓸 수 없어: {path}"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Capture"
+msgstr "녹화 대상"
+
+msgid "Change…"
+msgstr "변경…"
+
+msgid ""
+"Couldn't ask systemd about the recording service. Is the user session "
+"running?"
+msgstr "녹음 서비스 상태를 systemd에 물어보지 못했어. 사용자 세션이 실행 중인지 확인해줘."
+
+msgid ""
+"Couldn't check whether a recording is running (systemd didn't answer). "
+"Nothing was changed."
+msgstr "녹음이 진행 중인지 확인하지 못했어(systemd 응답 없음). 아무것도 바꾸지 않았어."
+
+#, python-brace-format
+msgid ""
+"Couldn't finish the file. The raw recording was kept: {path}\n"
+"{error}"
+msgstr ""
+"파일을 마무리하지 못했어. 원본은 그대로 뒀어: {path}\n"
+"{error}"
+
+msgid "Couldn't open the area picker"
+msgstr "영역 선택 창을 띄우지 못했어"
+
+msgid "Couldn't read the monitor layout (xrandr)."
+msgstr "모니터 정보를 읽지 못했어(xrandr)."
+
+#, python-brace-format
+msgid ""
+"Couldn't save the session file ({error}), so the recording was stopped. The "
+"raw file is here: {path}"
+msgstr "세션 파일을 저장하지 못해서({error}) 녹음을 중지했어. 원본 파일: {path}"
+
+msgid "Couldn't start recording"
+msgstr "녹음을 시작하지 못했어"
+
+#, python-brace-format
+msgid "Couldn't start recording: {error}"
+msgstr "녹음을 시작하지 못했어: {error}"
+
+msgid "Couldn't tell which output is the default."
+msgstr "기본 출력 장치를 확인하지 못했어."
+
+msgid "Default output"
+msgstr "기본 출력"
+
+msgid "Drag out the rectangle to record"
+msgstr "화면에서 녹화할 사각형을 드래그로 지정"
+
+msgid ""
+"Drag to select · drag a corner to resize · drag inside to move · Enter to "
+"confirm · Esc to cancel"
+msgstr ""
+"드래그로 영역 지정 · 모서리로 크기 조절 · 안쪽을 끌어 이동 · Enter 확정 · "
+"Esc 취소"
+
+msgid "Finishing the file…"
+msgstr "저장 마무리 중…"
+
+msgid "Input level"
+msgstr "입력 레벨"
+
+#, python-brace-format
+msgid "Input test failed: {error}"
+msgstr "입력 확인 실패: {error}"
+
+msgid "Keep recording, hide the window"
+msgstr "녹음 계속하고 창만 닫기"
+
+msgid "Listen for 3 seconds and check that both inputs get real signal"
+msgstr "3초 동안 실제 신호가 들어오는지 검사"
+
+msgid "Live while recording"
+msgstr "녹음 중 실시간 표시"
+
+msgid "Meeting Recorder"
+msgstr "회의 녹음기"
+
+msgid "Mic"
+msgstr "마이크"
+
+#, python-brace-format
+msgid "Mic {mic}   ·   System sound {sys}"
+msgstr "마이크 {mic}   ·   시스템 소리 {sys}"
+
+msgid "Microphone"
+msgstr "마이크"
+
+#, python-brace-format
+msgid ""
+"No data arrived and the recorder did not stop. Check: systemctl --user "
+"status {unit}"
+msgstr "데이터가 들어오지 않았는데 녹음이 멈추지도 않았어. 확인: systemctl --user status {unit}"
+
+msgid "No microphone found. Check your audio devices."
+msgstr "사용 가능한 마이크가 없어. 오디오 장치를 확인해줘."
+
+msgid "No output device found."
+msgstr "사용 가능한 출력 장치가 없어."
+
+msgid "No recording file was created."
+msgstr "녹음 파일이 만들어지지 않았어."
+
+#, python-brace-format
+msgid "Not enough free disk space ({free})."
+msgstr "디스크 여유 공간이 부족해({free})."
+
+#, python-brace-format
+msgid "Not enough space to finish the file. The raw recording was kept: {path}"
+msgstr "파일을 마무리할 공간이 부족해. 원본은 그대로 뒀어: {path}"
+
+msgid "Open recordings folder"
+msgstr "저장 폴더 열기"
+
+msgid "Pick again"
+msgstr "영역 다시 지정"
+
+msgid "Pick area"
+msgstr "영역 지정"
+
+msgid "Picking an area needs an X11 session"
+msgstr "영역 지정은 X11 세션에서만 돼"
+
+#, python-brace-format
+msgid "Re-attached to the running recording  ·  {file}"
+msgstr "진행 중인 녹음에 다시 연결됨  ·  {file}"
+
+msgid "Ready"
+msgstr "준비됨"
+
+msgid ""
+"Record microphone, system sound and optionally the screen into one file."
+msgstr "마이크와 시스템 소리, 필요하면 화면까지 한 파일로 녹음해."
+
+#, python-brace-format
+msgid "Recording  {time}"
+msgstr "녹음 중  {time}"
+
+#, python-brace-format
+msgid "Recovered an unfinished recording: {file}"
+msgstr "끝나지 않은 녹음을 복구했어: {file}"
+
+msgid "Refresh devices"
+msgstr "장치 새로고침"
+
+msgid "Running out of disk space, stopping the recording."
+msgstr "디스크 공간이 부족해서 녹음을 중지할게."
+
+msgid "Save recordings to"
+msgstr "녹음 저장 위치"
+
+msgid "Save to"
+msgstr "저장 위치"
+
+msgid "Saved"
+msgstr "저장 완료"
+
+msgid "Saved device (not connected)"
+msgstr "저장된 장치 (연결 안 됨)"
+
+#, python-brace-format
+msgid "Saved what was recorded: {file}"
+msgstr "여기까지는 저장했어: {file}"
+
+#, python-brace-format
+msgid ""
+"Saved {got} of about {expected}. The raw recording was kept in case more can "
+"be recovered: {path}"
+msgstr "약 {expected} 중 {got}를 저장했어. 더 복구할 수 있을지 몰라서 원본도 남겨뒀어: {path}"
+
+msgid "Saving"
+msgstr "저장"
+
+msgid "Saving failed"
+msgstr "저장 실패"
+
+msgid "Saving…"
+msgstr "저장 중…"
+
+msgid "Screen"
+msgstr "화면"
+
+#, python-brace-format
+msgid "Screen + sound · {codec}"
+msgstr "화면 + 소리 · {codec}"
+
+msgid ""
+"Screen capture needs an X11 session. Record audio only, or log in with X11."
+msgstr ""
+"화면 캡처는 X11 세션에서만 돼. 오디오만 녹음하거나 X11 세션으로 로그인해줘."
+
+msgid "Selected area · not picked yet"
+msgstr "선택 영역 · 아직 지정 안 됨"
+
+#, python-brace-format
+msgid "Selected area · {w}×{h} at ({x},{y})"
+msgstr "선택 영역 · {w}×{h} @ ({x},{y})"
+
+msgid "Sound"
+msgstr "소리"
+
+msgid "Sound only"
+msgstr "소리만"
+
+msgid "Start recording"
+msgstr "녹음 시작"
+
+msgid "Starting…"
+msgstr "시작하는 중…"
+
+msgid "Stop and save"
+msgstr "중지하고 저장"
+
+msgid "Stop recording"
+msgstr "녹음 중지"
+
+msgid "Stopped, but there was no session information to finish the file."
+msgstr "중지했지만 파일을 마무리할 세션 정보가 없어."
+
+msgid "System"
+msgstr "시스템"
+
+msgid "System default"
+msgstr "시스템 기본"
+
+msgid "System sound"
+msgstr "시스템 소리"
+
+msgid "Test"
+msgstr "검사"
+
+msgid "Testing…"
+msgstr "검사 중…"
+
+#, python-brace-format
+msgid "The raw file was kept: {path}"
+msgstr "원본 파일은 그대로 뒀어: {path}"
+
+#, python-brace-format
+msgid "The recorder did not stop. Check: systemctl --user status {unit}"
+msgstr "녹음이 멈추지 않았어. 확인: systemctl --user status {unit}"
+
+msgid "The recording ended unexpectedly."
+msgstr "녹음이 예기치 않게 끝났어."
+
+#, python-brace-format
+msgid "The recording has no audio track. The raw file was kept: {path}"
+msgstr "오디오 트랙이 없어. 원본은 그대로 뒀어: {path}"
+
+#, python-brace-format
+msgid "The recording has no video track. The raw file was kept: {path}"
+msgstr "영상 트랙이 없어. 원본은 그대로 뒀어: {path}"
+
+msgid "The recording started but no data arrived, so it was stopped."
+msgstr "녹음은 시작됐지만 데이터가 들어오지 않아서 중지했어."
+
+#, python-brace-format
+msgid ""
+"The recording stopped right after it started:\n"
+"{log}"
+msgstr ""
+"녹음이 시작 직후 종료됐어:\n"
+"{log}"
+
+msgid "The saved area doesn't fit the current screen. Pick the area again."
+msgstr "저장된 영역이 지금 화면에 맞지 않아. 영역을 다시 지정해줘."
+
+msgid ""
+"The saved microphone isn't connected. Plug it back in or pick another one."
+msgstr "저장된 마이크를 찾지 못했어. 다시 연결하거나 다른 마이크를 골라줘."
+
+msgid "The saved output device isn't connected. Pick it again."
+msgstr "저장된 출력 장치를 찾지 못했어. 다시 골라줘."
+
+#, python-brace-format
+msgid "The saved screen ({name}) isn't connected. Pick what to record."
+msgstr "저장된 화면({name})이 연결돼 있지 않아. 녹화할 대상을 다시 골라줘."
+
+msgid ""
+"The system's default input isn't a microphone (it may be a monitor). Pick a "
+"microphone."
+msgstr ""
+"시스템 기본 입력이 실제 마이크가 아니야(모니터 소스일 수 있음). 마이크를 직"
+"접 골라줘."
+
+msgid "There was a problem saving"
+msgstr "저장에 문제가 있었어"
+
+#, python-brace-format
+msgid "Too small, the minimum is {w}×{h} px"
+msgstr "너무 작아. 최소 {w}×{h}px"
+
+msgid "Use this area"
+msgstr "이 영역으로 지정"
+
+msgid "Wait until the file is finished"
+msgstr "파일 저장이 끝날 때까지 기다려줘"
+
+msgid "What should happen when this window closes?"
+msgstr "창을 닫으면 어떻게 할까?"
+
+#, python-brace-format
+msgid "Whole desktop (all monitors) · {w}×{h}"
+msgstr "전체 화면 (모든 모니터) · {w}×{h}"
+
+msgid "check the microphone"
+msgstr "마이크 확인 필요"
+
+#, python-brace-format
+msgid "min {w}×{h}"
+msgstr "최소 {w}×{h}"
+
+#, python-brace-format
+msgid "no signal ({hint})"
+msgstr "신호 없음 ({hint})"
+
+msgid "nothing is playing"
+msgstr "재생 중인 소리 없음"
+
+msgid "silent"
+msgstr "무음"
+
+#, python-brace-format
+msgid "{name} (not connected)"
+msgstr "{name} (연결 안 됨)"
+
+#, python-brace-format
+msgid "{path}  ·  {free} free"
+msgstr "{path}  ·  여유 {free}"
+
+#, python-brace-format
+msgid "“{name}” has no monitor source, so its sound can't be recorded."
+msgstr "'{name}'에 모니터 소스가 없어서 시스템 소리를 녹음할 수 없어."
+
+msgid "⚠ No audio is reaching the recorder"
+msgstr "⚠ 녹음기에 소리가 들어오지 않고 있어"
+
+msgid "⚠ The microphone is silent (is it muted?)"
+msgstr "⚠ 마이크에 소리가 안 들어오고 있어 (음소거 확인)"
+
+msgid "⚠ not a microphone, pick one"
+msgstr "⚠ 마이크가 아님, 직접 선택 필요"
+
+msgid "⚠ unknown"
+msgstr "⚠ 확인 불가"
