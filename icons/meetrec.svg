@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3c4250"/>
+      <stop offset="1" stop-color="#22262f"/>
+    </linearGradient>
+    <linearGradient id="dot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff6b5e"/>
+      <stop offset="1" stop-color="#e03127"/>
+    </linearGradient>
+    <linearGradient id="mic" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cfd6e4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- rounded app body -->
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="url(#body)"/>
+  <rect x="16" y="16" width="224" height="224" rx="52" fill="none" stroke="#0d0f14" stroke-opacity=".45" stroke-width="3"/>
+
+  <!-- microphone capsule -->
+  <rect x="105" y="56" width="46" height="80" rx="23" fill="url(#mic)"/>
+  <!-- capsule grille lines -->
+  <g stroke="#98a2b6" stroke-width="3" stroke-linecap="round" opacity=".55">
+    <line x1="115" y1="76" x2="141" y2="76"/>
+    <line x1="115" y1="90" x2="141" y2="90"/>
+    <line x1="115" y1="104" x2="141" y2="104"/>
+  </g>
+  <!-- mic cradle -->
+  <path d="M82 122a46 46 0 0 0 92 0" fill="none" stroke="url(#mic)" stroke-width="12" stroke-linecap="round"/>
+  <line x1="128" y1="168" x2="128" y2="184" stroke="url(#mic)" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- record dot -->
+  <circle cx="128" cy="206" r="20" fill="url(#dot)"/>
+  <circle cx="128" cy="206" r="20" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="3"/>
+</svg>
