@@ -4,7 +4,7 @@ A small GTK4 meeting recorder for Linux. One window, one big button: it records 
 
 <img src="docs/recording.webp" width="430" alt="meetrec recording a selected screen area, with live microphone and system sound meters">
 
-I wanted meeting recordings with both sides of the conversation in one file and the shared screen next to it, without setting up OBS for every call. Most of the code deals with failure cases: the window crashing mid-meeting, PipeWire renaming a headset after a re-plug, and ffmpeg being killed before it could close the file.
+Before this app, each meeting meant starting an ffmpeg recording from the terminal. I wanted both sides of the conversation in one file, the shared screen next to it, and a small window with one button instead. Most of the code deals with failure cases: the window crashing mid-meeting, PipeWire renaming a headset after a re-plug, and ffmpeg being killed before it could close the file.
 
 [한국어 설명은 아래에 있습니다.](#한국어)
 
@@ -84,6 +84,8 @@ MIT, see [LICENSE](LICENSE).
 ## 한국어
 
 마이크와 시스템 소리(통화 상대 목소리)를 한 파일에 담고, 원하면 화면이나 모니터 하나, 드래그로 지정한 영역까지 같이 녹화하는 리눅스 GTK4 회의 녹음기입니다. 창 하나, 큰 버튼 하나로 동작합니다.
+
+이 앱을 만들기 전에는 회의 때마다 터미널에서 ffmpeg 녹화 명령을 따로 돌렸습니다. 양쪽 목소리를 한 파일에, 공유 화면은 옆에 두고, 버튼 하나짜리 작은 창으로 끝내고 싶었습니다.
 
 - 녹음은 systemd 사용자 서비스로 돌아서 창을 닫거나 앱이 죽어도 계속됩니다. 앱을 다시 열면 진행 중인 녹음에 다시 연결되고, 창이 없는 동안 끝난 녹음은 다음 실행 때 마무리합니다.
 - 녹화 중에는 Matroska 파일에 쓰고 대략 1초마다 디스크로 내보냅니다. 중지하면 재인코딩 없이 MP4/M4A로 바꾸고 결과를 검증한 뒤에만 원본을 지웁니다. 4초 녹음 중 ffmpeg를 강제 종료한 테스트에서 3.9초가 복구됐습니다.
